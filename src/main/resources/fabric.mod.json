@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "discordrpc",
+  "version": "${version}",
+  "name": "ManteRPC",
+  "description": "Simple Discord Rich Presence mod. Install and run, no setup required",
+  "authors": [],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/discordrpc/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "net.fabricmc.mante.discordrpc.client.DiscordrpcClient"
+    ],
+    "main": [
+    ]
+  },
+  "mixins": [
+    "discordrpc.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.11.3",
+    "fabric": "*",
+    "minecraft": ">=1.16.1"
+  }
+}
