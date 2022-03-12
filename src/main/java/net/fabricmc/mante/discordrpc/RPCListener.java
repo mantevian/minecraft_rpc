@@ -39,24 +39,24 @@ public class RPCListener implements IPCListener {
 
         RichPresence.Builder builder = new RichPresence.Builder()
                 .setStartTimestamp(timestamp)
-                .setLargeImage("grass_block", "Rich Presence developed by Mante");
+                .setLargeImage("grass_block", "rich presence developed by mantevian");
 
-        String state = "Idling";
-        String details = "In menus";
+        String state = "idle";
+        String details = "in menu";
 
         if (mc.getCurrentServerEntry() != null && mc.player != null) {
-            details = "Playing on " + mc.getCurrentServerEntry().name;
+            details = "playing on " + mc.getCurrentServerEntry().name;
             List<? extends PlayerEntity> players = mc.player.getEntityWorld().getPlayers();
             if (players.size() == 1)
-                state = "Lonely";
+                state = "lonely";
             else if (players.size() == 2)
                 state = "with " + mc.player.getEntityWorld().getPlayers().stream().filter(p -> !p.equals(mc.player)).map(p -> p.getName().getString()).collect(Collectors.joining(", "));
             else
                 state = "with " + (players.size() - 1) + " players";
         }
-        else if (mc.isInSingleplayer()) {
-            state = "Lonely";
-            details = "In a singleplayer world";
+        else if (mc.isInSingleplayer() && mc.player != null) {
+            state = "lonely";
+            details = "in singleplayer";
         }
 
         try {
